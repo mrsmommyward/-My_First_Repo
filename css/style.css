@@ -1,0 +1,138 @@
+html {
+    font-family: 'Nunito', sans-serif; /* Setting the overall page font to Nunito */
+}
+
+a, a:link, a:visited { /* Setting the styles for all links on the page including those that have been visited before. Remember, by default the browser specifies styles for this so we want to overwrite them unless we want to get the default */
+    color: #D6109A; /* Setting the link color */
+    text-decoration: none; /* Telling the browser to not underline links */
+}
+a:hover {
+    color: #0AD36E; /* Setting the hover color for links */
+    text-decoration: underline; /* Applying an underline for links. The browser does this by default but since we overwrote that above, we need to specify when we do want underlines. */
+}
+
+/* Styles for the main content block */
+    .main {
+        max-width: 1000px; /* Giving a max width to the page */
+        margin: auto; /* Telling the page to be centered */
+        background-color: #edf1f5; /* Applying a background color to the main content block*/
+        border: thin #333333 solid; /* Applying a border to the entire main content section */
+    }
+        .main img { /* I want all images in the .main class to have a solid gray border and padding */
+            width: 100%; /* Setting image to 100% width so it will scale down as the browser does */
+            border: 7px #cccccc solid;
+        }
+
+/* Primary navigation styles */
+    .topnav {
+        border-bottom: thin #333333 solid; /* Applying a thin, dark gray border just to the bottom of this section */
+    }
+        
+        .topnav ul {/* Telling the browser to ONLY use these styles in the .topnav class's UL (unordered list) */
+            display: flex; /* Have to set to display: flex since child divs are going to use flexbox */
+            margin: 0; /* If you don't set margin to 0 for Unordered and Ordered lists, the browser will add some by default */
+            padding: 10px 0; /* If you don't set padding to 0 for Unordered and Ordered lists, the browser will apply some by default. In this case, I want top and bottom padding to be 10px but left and right to be 0. I can write this as either padding:10px 0 10px 0px; (Remember, clockwise order so these numbers are top, right, bottom, left), or just 10px 0px */
+        }
+
+        .topnav ul li {
+            list-style-type: none; /* Removing the bullets besides the topnav items */
+            border-right: thin #ffffff solid; /* Applying a right border to the list items */
+        }
+
+        .topnav a {/* I want to address the link styles for the nav differently than other links on the page, so I'm referencing .topnav first here */
+            color: #ffffff; /* Since there are ONLY links in the nav, I don't have to specify color: #ffffff in the .top class itself */
+            text-decoration: none; /* The browser will underline links by default, so I'm saying not to here because I only want them on hover. */
+            background-color: #333333; /* I want the background color to change on hover, so I applied it here and then will put the color change in the :hover section below*/
+            padding: 10px 30px; /* This padding NOT ONLY provides spacing around the text, but it since it's applied to an <a> tag, it defines the clickable area for the links too! */
+        }
+
+            .topnav a:hover {
+                color: #333333; /* Changing the text color on hover to dark gray */
+                background-color: #00c6b9; /* Changing the background color to teal on hover */
+                transition: 0.3s; /* Adding in a hover fade transition for a little fanciness! */
+            }
+
+/* Pet Info styles */ 
+    .petinfo {
+        display: flex; /* Declaring that this div needs to use Flexbox */
+        flex-wrap: wrap; /* Using Flexbox to tell items to wrap as the browser is scaled down */
+    }
+
+
+/* Sidebar styles */
+    .sidebar {
+        flex-direction: column; /* Flexbox by default displays items in a horizontal row. This line is saying to display the two divs in Sidebar as a vertical column */
+        flex-grow: 1; /* Using this to define the left column as the first item in the row */
+        flex-shrink: 0; 
+        flex-basis: 0;
+    }
+
+    .profile {
+        border-bottom: thin #333333 solid; /* Giving a bottom border to the pup picture and name area */
+        padding: 30px; /* Putting a little space at the bottom of .profile */      
+    }
+
+    .name {
+        text-align: center; /* Centering the pup name */
+    }
+
+    .stats {
+        padding: 30px; /* Applying a little padding to the Stats area */
+    }
+
+        .stats ul{
+            padding-left: 0px; /* Browsers will apply padding to ULs and OLs by default unless we overwrite. I wanted that removed here so the Stats list aligns with it's H2*/
+        }
+
+        .stats ul li {
+            list-style-type: none; /* I don't want bullets to show, so I apply this to the list items */
+            padding: 0 0 15px 0; /* I want a little spacing at the bottom of each list item */
+        }
+
+    .statbold {
+        font-weight: 900; /* Bolding the first part of the Stats list text just for the 2nd and 3rd lines */
+    }
+
+/* Details styles */   
+    .details {
+        flex-direction: column;
+        padding: 30px; /* Applying a little padding to the Details area */
+        border-left: thin #333333 solid; /* Giving a left border to the section to clearly divide it from Sidebar */
+        flex-grow: 2;
+        flex-shrink: 0;
+        flex-basis: 33.3333%;
+        flex-basis: 300px;
+    }
+
+    .bioimage {
+        float: left; /* Floating the image in the content to the left */
+        margin: 0 20px 20px 0; /* Applying a margin around the image so it doesn't smash up againt the text */
+        max-width: 250px; /* Setting a maximum width that the image size is allowed to grow */
+    }
+
+    .bio h2 {
+        margin: 0 0 10px 0; /* Browsers will apply margin to H2s unless we specify none. In this case, I'm saying to set top margin to 0, left to 0, right to 0, but bottom to 10px */
+    }
+
+    .pictures {
+        margin-top: 40px; /* I want more spacing between the "Check out these floofs!" or pictures section and the paragraph above it */
+    }
+        .pictures h2 { /* I only want to center the h2 for .pictures */
+            text-align: center;
+        }
+
+
+    .galleryimage {
+        display: flex; /* Setting div to use Flexbox */
+        flex-wrap: wrap; /* Telling content in the div to wrap when the browser scales */
+        justify-content: space-around; /* Using Flexbox to add spacing around the content in .galleryimage */
+    }
+
+        .gallery {
+            width: 200px; /* Specifying a width so my images all look uniform */
+            flex-basis: 220px;
+        }
+
+            .gallery img { /* Setting the width to images in the .gallery div to a width of 100%. This makes them shrink to fit the div space they're in. In this case, the images are naturally larger than the space I am providing for them in the design, so I'm scaling them down to fit the 180px width above */
+                width: 100%; 
+            }
